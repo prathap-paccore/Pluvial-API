@@ -1,0 +1,236 @@
+@import 'logins/variables';
+@import 'logins/mixin';
+@import 'global/preloader';
+
+html,body{height:100%}
+html *{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{background:$body-color;font-size:$font-size-base;line-height:$line-height-base;font-family:$font-main;color:$body-text-color}
+h1,h2,h3,h4,h5,h6{color:$heading-color}
+p{margin-bottom:25px}
+strong{font-weight:500}
+label{font-weight:400;margin-bottom:3px;color:$heading-color}
+hr{margin:30px 0 30px 0;border-color:$border-color-5}
+ul,ol{list-style:none;margin:0 0 25px 0;padding:0}
+
+body{overflow: hidden;}
+
+.wrapper{height:100vh;display:flex; background: #ffffff;}
+.form-container, .img-container{flex:1;display:flex !important;min-height:100%;}
+.form-container{padding:30px 30px 0px 30px;display:flex;flex-direction:column;overflow:auto;
+	h4{color: #344767;font-size: 21px;line-height: 32px;font-weight: 600 !important;}
+}
+/*!General links color*/
+a{color:$color-1;text-decoration:none;@include transition-default;outline:0;&:hover,&:focus{color:#111;text-decoration:none;outline:0}
+}
+
+/*!-------- 1.2 Buttons --------*/
+a.btn_1,.btn_1{
+	border:0;color:#fff;background:$color-1;outline:0;cursor:pointer;display:inline-block;text-decoration:none;padding:12px 25px;color:#fff;font-weight:600;text-align:center;@include transition-default;@include border-radius(3px);@include fontSize(14px);
+	
+	&:hover{-webkit-filter:brightness(125%);filter:brightness(125%)}
+	&.full-width{display:block;width:100%;text-align:center;margin-bottom:5px}
+	&.small{padding:7px 10px;@include fontSize(13px)}
+	&.medium{@include fontSize(16px);padding:18px 30px}
+	&.rounded{@include border-radius(25px!important);@include box-shadow(0px 0 30px 0 rgba(0,0,0,0.20))}
+	&.black{background:#222}
+	&.plus_icon{padding-right:10px;padding-bottom:5px;
+		i{@include fontSize(26px);float:right;position:relative;top:-3px;line-height:1}
+		&.medium{padding-bottom:10px;padding-right:20px}
+	}
+}
+
+/*!-------- 1.3 Structure --------*/
+.row-height{
+	min-height:100vh!important;height:100vh;@include tablet{height:auto}
+}
+
+
+/*!============================================================================================*/
+/*! 2.  CONTENT */
+/*!============================================================================================*/
+/*!-------- 2.1 Content styles --------*/
+
+.panel{
+	figure{margin:0 0 15px 0;text-align:center;border-bottom:1px solid $border-color-2;padding:0 60px 30px 60px;
+		@include mobile{margin:-30px -30px 20px -30px;padding:20px 30px}
+	}
+@include box-shadow(3px 0 30px rgba(0,0,0,0.20));width:430px;padding:30px 45px;position:absolute;left:0;top:0;overflow-y:auto;background-color:#fff;min-height:100vh;z-index:99;
+	.copy{padding-top:30px;left:0;bottom:15px;position:absolute;text-align:center;width:100%}
+	@include mobile{width:100%}
+	#forgot_pw{top:101px;display:none;padding:25px 45px}
+	.input_style_2{
+		.divider{margin-bottom:30px}
+	}
+	&.right{left:auto;right:0}
+	&.center{position:relative;width:100%;min-height:inherit}
+	&.header_2{
+		figure{background-color:#f8f8f8;margin:-30px -45px 45px -45px;padding:25px 15px}
+	}
+}
+
+.review_block_numbers{ul{padding:0;margin:0 -3px;list-style-type:none;display:flex;justify-content:center;li{display:list-item;margin:0 3px;width:100%}
+}
+}
+.container_numbers{
+	margin-bottom:5px;position:relative;input[type="radio"]{display:none}
+label{cursor:pointer}
+.radio{position:relative;border:1px solid $border-color-3;@include border-radius(3px);padding:15px;display:block;text-align:center;@include fontSize(18px);font-weight:500;@include extra-small-mobile{padding:10px} transition:all 450ms;
+	&:hover{border-color:transparent}
+	&.very_bad{
+		&:hover{background-color:#f03}
+	}
+	&.bad{
+		&:hover{background-color:#ff5f7f}
+	}
+	&.average{
+		&:hover{background-color:#94b49b}
+	}
+	&.good{
+		&:hover{background-color:#68cd7f}
+	}
+	&.very_good{
+		&:hover{background-color:#68cd7f}
+	}
+}
+}
+.container_numbers input[type="radio"]:checked{
+	& ~ .radio,&:hover{transition:all 450ms;color:#fff;border:1px solid transparent;&.very_bad{background-color:#f03}
+	&.bad{background-color:#ff5f7f}
+	&.average{background-color:#94b49b}
+	&.good{background-color:#68cd7f}
+	&.very_good{background-color:#68cd7f}
+}
+}
+/*!============================================================================================*/
+/*! 3.  COMMON */
+/*!============================================================================================*/
+/*!-------- 3.1 Forms --------*/
+	.form-control{
+		border:1px solid $border-color-3!important;@include border-radius(3px);font-size:$font-size-base;height:calc(2.55rem + 2px);
+		&:focus{box-shadow:none;border-color:$color-1}
+	}
+	.form-control::-webkit-input-placeholder,.form-control::-moz-placeholder,.form-control:-ms-input-placeholder,.form-control::-ms-input-placeholder{color:#999;opacity:1}
+	.input_style_2{
+		.form-control{
+			border:none!important;border-bottom:1px solid $border-color-3!important;padding-left:0;padding-right:0;height:calc(2.1rem);@include border-radius(0!important);
+			&:focus{box-shadow:none;border-color:$color-1!important}
+		}
+		.form-group{margin-bottom:30px}
+		.my-toggle{margin-right:0;padding:0;
+			&:hover,&:focus{background-color:transparent;color:$color-1}
+		}
+	}
+	/*! Fileupload */
+	.fileupload{position:relative;width:100%;margin-top:5px}
+	input[type=file]{
+		background-color:#fff;border:1px solid $border-color-3;@include border-radius(3px);padding:5px;height:auto;width:100%;color:#999;
+		&:focus{box-shadow:none;outline:0}
+	}
+	input[type=file]::-webkit-file-upload-button,
+input[type=file].invalid::-webkit-file-upload-button,
+input[type=file].valid::-webkit-file-upload-button{
+		color:$color-1;font-size:13px;border:0;@include border-radius(3px);padding:6px 10px 6px 38px;background:rgba(210, 17, 19, .15) url("../img/upload_icon.svg") -18px center no-repeat;background-size: 58% 58%;outline:0;
+		&:focus{box-shadow:none;outline:0}
+	}
+	.btn.disabled, .btn:disabled, fieldset:disabled .btn, button:disabled, input:disabled {pointer-events: none;opacity: .65;}
+	.otp-fields{
+		.form-control{width:50px;height:50px;font-size:24px;text-align:center;margin:0px 12px;}
+	}
+
+/*!-------- 3.2 Show/hide password + Password Strength --------*/
+	.my-toggle{
+		background:transparent;border:0;@include border-radius(3px);color:#888;cursor:pointer;font-size:10px;@include fontSize(10px);font-weight:bold;margin-right:5px;height:30px;line-height:30px;padding:0 10px;text-transform:uppercase;-moz-appearance:none;-webkit-appearance:none;
+		&:hover,&:focus{background-color:#eee;color:#555;outline:transparent}
+}
+	.hideShowPassword-wrapper{width:100%!important}
+	/*!Password strength */
+	#pass-info{width:100%;color:#555;text-align:center;@include fontSize(12px);padding:0px 3px;@include border-radius(3px);
+		&.weakpass,&.stillweakpass,&.goodpass,&.strongpass,&.vrystrongpass{margin-bottom:12px;height: 26px;line-height: 26px;}
+		&.weakpass{border:1px solid #ff9191;background:#ffc7c7;color:#94546e}
+		&.stillweakpass{border:1px solid #FBB;background:#FDD;color:#945870}
+		&.goodpass{border:1px solid #c4eec8;background:#e4ffe4;color:#51926e}
+		&.strongpass{border:1px solid #6ed66e;background:#79f079;color:#348f34}
+		&.vrystrongpass{border:1px solid #379137;background:#48b448;color:#cdffcd}
+	}
+/*!-------- 3.3 Misc --------*/
+	.tooltip .tooltip-inner{@include fontSize(13px);line-height:1.3;padding:10px}
+	.tooltip.show{opacity:.9}
+	.info{display:block;
+		h6{font-size:13px;font-weight:400;margin-bottom:.3px;}
+	a{@include fontSize(16px);display:inline-block;float:right;color:#999;padding-top:3px;
+		&:hover{color:$color-1}
+	}
+}
+
+
+
+
+
+
+
+/* ======================================================
+					IMG STYLING
+=======================================================*/
+.img-container{padding:16px;overflow: hidden;}
+
+.login-gradient{background-image: linear-gradient(to left top, #45108a, #440d81, #430b79, #420971, #400769, #3c0764, #370660, #33065b, #2c0658, #240655, #1b0551, #12054e);}
+.br-15{border-radius: 15px;}
+
+
+@media (max-width:991px){
+	.img-container{display: none !important;}
+}
+
+
+
+.copy{font-size:13px;color:#555555;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ripple{
+  display:flex;align-items:center;justify-content:center;margin:auto;margin:5rem auto;background-color:#7ac142;width:1rem;height:1rem;border-radius:50%;position:relative;animation:ripple 3s linear infinite;
+  &::before,&::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;border-radius:50%;animation:inherit;animation-delay:1s}
+  &::after{animation-delay:2s}
+}
+@keyframes ripple{
+  0%{box-shadow: 0 0 0 .7rem  rgba(122,193,66,0.2);}
+  100%{box-shadow: 0 0 0 8rem rgba(122,193,66,0);}
+}
+
+.checkmark{position:absolute;top:-21px;
+	width:56px;height:56px;border-radius:50%;display:block;stroke-width:2;stroke:#fff;stroke-miterlimit:10;margin:10% auto;box-shadow:inset 0px 0px 0px #7ac142;animation:fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+	
+	&__circle{stroke-dasharray:166;stroke-dashoffset:166;stroke-width:2;stroke-miterlimit:10;stroke:#7ac142;fill:none;animation:stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;}
+	&__check{transform-origin:50% 50%;stroke-dasharray:48;stroke-dashoffset:48;animation:stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;}
+}
+@keyframes stroke{
+  100%{stroke-dashoffset:0;}
+}
+@keyframes scale{
+  0%, 100%{transform:none;}
+  50%{transform:scale3d(1.1, 1.1, 1);}
+}
+@keyframes fill{
+  100%{box-shadow:inset 0px 0px 0px 30px #7ac142;}
+}
+
+
+
+
+
+
+
+
